@@ -1,0 +1,23 @@
+%===============================================================================================
+%                                          Anexos
+%===============================================================================================
+\newpage
+\let\originalanexo=\anexo
+\def\appendix{\cleardoublepage\originalanexo}
+\setcounter{chapter}{0}
+\def\thechapter{\Alph{chapter}}
+\phantomsection
+\addcontentsline{toc}{chapter}{ANEXOS}
+%===============================================================================================
+% ========== Anexo A ============
+\input{anexos/anexoA}   
+% ========== Anexo B ============
+\input{anexos/anexoB}  
+% ===============================
+
+
+
+
+
+
+

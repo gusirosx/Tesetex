@@ -1,0 +1,28 @@
+%===================================================================================================
+%                                         SUMÁRIO
+%===================================================================================================
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{SUMÁRIO}
+\renewcommand*\contentsname{}
+%\DeclareRobustCommand\contentsname
+{\begin{center} \chapter*{SUMÁRIO} \end{center}}
+\vspace{-13ex}
+\tableofcontents
+\clearpage
+%===================================================================================================
+%                                    DEMAIS FORMATAÇÕES
+%===================================================================================================
+%%% Setspace
+\onehalfspacing         % Espaçamento de 1.5
+%%% Iniciar capítulos apenas em páginas impares
+\let\originalchapter=\chapter
+\def\chapter{\cleardoublepage\originalchapter}
+\setlength{\parskip}{1\baselineskip}
+
+%Comentar esse trecho se quiser omitir a numeração.
+%==================================================================================================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO,LE]{\thepage}
+%==================================================================================================

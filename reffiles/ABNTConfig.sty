@@ -11,13 +11,14 @@
 %
 % Instruções completas disponíveis em: https://github.com/gusirosx/TexTemplate
 %==========================================================================================
-%                                      PACOTES PRINCIPAIS
+%                                      PACOTES
 %==========================================================================================
 %% Codificação e formatação básica do LaTeX
 \usepackage[top=3cm,left=3cm,right=2cm,bottom=2cm]{geometry} % Margens da Página
-\usepackage[portuges, brazilian]{babel} % Hiphenação em portugues
+\usepackage[portuges, brazilian]{babel} % Texto em português
+%\usepackage[english]{babel}            % Texto em inglês
 \usepackage[utf8]{inputenc}             % Codificação do arquivo
-\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}                % Suporte para Acentuação
 \usepackage{times}                      % Pacote de fonte Times
 \usepackage{lhelp}                      % Denine macros úteis
 \usepackage{ccaption}                   % Opções para capítulos
@@ -28,6 +29,8 @@
 \usepackage{floatflt}                   % Quebra de texto em figuras e tabelas
 \usepackage{colortbl}                   % Adicionar cor às tabelas
 \usepackage{fancyvrb}                   % Texto verbatim sofisticado
+\usepackage{verbatim}                   % Texto verbatim
+\usepackage{float}                      %Improved interface for floating objects
 \usepackage{wrapfig}                    % Produz figuras que o texto pode ficar ao redor
 \usepackage{url}                        % Adiciona URLs
 \usepackage{multirow}                   % Permite construir células multi-linhas
@@ -50,19 +53,17 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \usepackage{color}                      % Suporte para cores
 \usepackage{transparent}                % Suporte para vários conjuntos de cores
 \usepackage{siunitx}                    % Sistema internacional de unidades
-\usepackage{makeidx}
+\usepackage{makeidx}                    % Process index output to produce typesettable code
 \usepackage{emptypage}                  % Retira o número de páginas em branco
-\usepackage{afterpage}
-\usepackage{kantlipsum}                 % mock text
+\usepackage{afterpage}                  % Execute command after the next page break
+\usepackage{kantlipsum}                 % The package spits out sentences in Kantian style
 \usepackage{setspace}                   % Para definir espaçamento entre as linhas
 \usepackage{listings}                   % Para Inserir código fonte
-\usepackage{graphics}                   % Suporte padrão para gráficos
-\usepackage{graphicx}                   % Suporte avançado para gráficos
-\usepackage[]{graphicx}                 % Para incluir figuras (pacote extendido)
+\usepackage{graphics,graphicx}          % Suporte para gráficos
 \usepackage[normalsize]{subfigure}      % Possibilita a utilização de subfiguras
-\usepackage{epsfig}                     % Uso de figuras eps.
-\usepackage{epsf}
+\usepackage{epsfig,epsf}                % Uso de figuras eps.
 \usepackage{caption}                    % Customizar as legendas de figuras e tabelas
+%\usepackage{subcaption}                 % Support for sub-captions
 \usepackage{multicol}                   % Criar ambientes com 2 ou mais colunas
 \usepackage{array}                      % Elementos extras para formatação de tabelas
 \usepackage{booktabs}                   % Tabelas com qualidade de publicação
@@ -72,9 +73,13 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \makenomenclature
 \usepackage{footnote}                   % Lidar com notas de rodapé em diversas situações
 \makesavenoteenv{tabular}               % Notas criadas nas tabelas ficam no fim das tabelas
+\usepackage[round]{natbib}              % Citações tipo (nome-ano)
+%\usepackage{natbib}                    % Citações tipo [nome-ano]
+\usepackage{icomma}                     % Posicionar inteligentemente a vírgula como separador decimal
+\usepackage[tight]{units}               % Formatar as unidades com as distâncias corretas
 \usepackage{pifont}                     % Acesso a PostScript Symbol padrão e fontes Dingbats
 \usepackage{lastpage}                   % Conta o número de páginas
-\usepackage{ifoddpage}                  % Incluinde páginas impares.
+\usepackage{ifoddpage}                  % Include páginas impares.
 \newcommand\alwaysodd[1]{%
   \checkoddpage
   \ifoddpage
@@ -83,21 +88,11 @@ bookmarksopen=true]{hyperref}           % To pdflatex
     \mbox{}\clearpage#1%
   \fi
 }
-%==========================================================================================
-%% Referências bibliográficas e afins
-\usepackage[round]{natbib}              % Citações tipo (nome-ano)
-%\usepackage{natbib}                    % Citações tipo [nome-ano]
-
-% Adicionar bibliografia, índice e conteúdo na Tabela de conteúdo, não inclui lista de tabelas e figuras no índice
 \usepackage[nottoc,notlof,notlot]{tocbibind}
-
-%% Pontuação e unidades
-\usepackage{icomma}         % Posicionar inteligentemente a vírgula como separador decimal
-\usepackage[tight]{units}   % Formatar as unidades com as distâncias corretas
 %==========================================================================================
-%                                   FORMATAÇÕES DE TEXTO
+%                                      FORMATAÇÕES 
 %==========================================================================================
-\special{papersize=210.0mm,297.0mm}     % Tamanho do papel (neste caso papel carta)
+\special{papersize=210.0mm,297.0mm}     % Tamanho do papel A4
 %\pagenumbering{roman}                  % Numeração das paginas iniciais em romano
 \setlength{\parindent}{2cm}             % Parágrafo de 1cm
 %\setlength{\mathindent}{1cm}           % Indentação das fórmulas matemáticas
@@ -108,11 +103,10 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \raggedbottom                           % Para não permitir espaços extra no texto
 \def\figurename{Figura.}                % Define como a palavra figura será escrito
 \def\tablename{Tabela.}                 % Define como a palavra tabela será escrito
-\newcommand{\eq}[1]{Eq.~(\ref{#1})}		% Facilita a citação de Equações
+\newcommand{\eq}[1]{Eq.~(\ref{#1})}		  % Facilita a citação de Equações
 \newcommand{\figu}[1]{Figura~\ref{#1}}	% Facilita a citação de Figuras
-\newcommand{\tab}[1]{Tabela~\ref{#1}}	% Facilita a citação de Tabelas
+\newcommand{\tab}[1]{Tabela~\ref{#1}}	  % Facilita a citação de Tabelas
 %==========================================================================================
-% Citação tipo (AUTOR, ano), conforme ABNT
 \renewcommand{\cite}[1]{(\textsc{\citeauthor{#1}},~\citeyear{#1})}
 \theoremstyle{definition}
 \newtheorem{defi}{Definição}[chapter]   % Para introduzir uma definição
@@ -188,24 +182,20 @@ bookmarksopen=true]{hyperref}           % To pdflatex
           {\z@}{1.5cm minus 0pt}{1.5cm minus 0pt}
 	  {\large{\textsf{\textbf{ANEXO}}}~~\renewcommand{\rmdefault}{phv}\large\bf}}
 %===================================================================================================
-%                                         SUB-SUB-SUB-SECTION
+%                                         SECTIONS
 %===================================================================================================
 \newcounter {subsubsubsection}[subsubsection]
 \renewcommand\thesubsubsubsection{}
-% \newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
-%                             {12pt minus 0pt}{12pt minus 0pt}{\normalfont\normalsize\it}}
-% Espaçamento do numero da subsubsubseção em relação à marge no sumário.
 \newcommand*\l@subsubsubsection{\@dottedtocline{3}{8em}{2.2em}}
 \newcommand*{\subsubsubsectionmark}[1]{}
 \def\thechapter{\arabic{chapter}}
 \def\thesection{\thechapter.\arabic{section}}
 \def\thesubsection{\thesection.\arabic{subsection}}
-% \def\thesubsubsection{\Alph{subsubsection}}
-\def\thesubsubsection{}
+\def\thesubsubsection{\thesubsection.\arabic{subsubsection}}
 \makeatother
-\renewcommand{\cftsubsubsecnumwidth}{1.9 em}  % Espaçamento do título da subsubseção
+\renewcommand{\cftsubsubsecnumwidth}{2.9 em}  % Espaçamento do título da subsubseção
 %===================================================================================================
-%                               FORMATAÇÃO DAS REFERÊNCIAS BIBLIOGRÁFICAS
+%                                     REFERÊNCIAS BIBLIOGRÁFICAS
 %===================================================================================================
 \renewcommand\refname{}
 \makeatletter
@@ -237,7 +227,7 @@ bookmarksopen=true]{hyperref}           % To pdflatex
        {\@latex@warning{Empty `thebibliography' environment}}%
         \endlist}
 %===================================================================================================
-%                                     ESTILOS DO PACOTE FANCYHDR
+%                                     ESTILOS DO FANCYHDR
 %===================================================================================================
 % Usar os estilos do pacote fancyhdr
 \pagestyle{fancy}
@@ -253,11 +243,9 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \renewcommand{\footrulewidth}{0pt}          % Omitir linha de separação entre rodapé e conteúdo
 \headheight 14.5pt                          % Altura do cabeçalho
 %===================================================================================================
-%                                        COMANDOS CUSTOMIZADOS
+%                                     COMANDOS CUSTOMIZADOS
 %===================================================================================================
 %  Ambiente para criar exemplos dentro de um capítulo.
-\usepackage{verbatim}
-\usepackage{float}
 \floatstyle{boxed}
 \newfloat{program}{!th}{lop}
 \floatname{program}{Exemplo}

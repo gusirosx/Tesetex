@@ -20,4 +20,4 @@ Seu software é lançado sob a licença [GNU GPL v3.0](https://www.gnu.org/licen
 
 Contribuidores
 ============
-Esse tema foi baseado em diversas compilações da [comunidade LaTeX](https://latex.org/forum/). A presente versão, foi compilada em português por [Gustavo Rodrigues](https://github.com/gusirosx).
+Esse tema foi baseado em diversas compilações da [comunidade LaTeX](https://latex.org/forum/). A presente versão, foi compilada por [Gustavo Rodrigues](https://github.com/gusirosx).

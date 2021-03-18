@@ -1,14 +1,11 @@
 %===============================================================================================
 %                                   Apêndices
 %===============================================================================================
-\let\originalappendix=\appendix
-\def\appendix{\originalappendix}
-\setcounter{chapter}{0}
-\def\thechapter{\Alph{chapter}}
-\phantomsection
 \addcontentsline{toc}{chapter}{APÊNDICES}
 %===============================================================================================
 % ========= Apêndice A ===========
+\renewcommand{\thechapter}{A}
 \input{apendices/apendiceA}   
 % ========= Apêndice B ===========
+\renewcommand{\thechapter}{B}
 \input{apendices/apendiceB}  

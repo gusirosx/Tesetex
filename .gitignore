@@ -164,6 +164,9 @@ _minted*
 *.nlo
 *.nls
 *.nls-s
+*.out
+*.ilg
+*.lof
 
 # pax
 *.pax

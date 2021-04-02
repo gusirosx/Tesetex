@@ -24,20 +24,25 @@ Estrutura de Arquivos
 
 O template inclui arquivos distribuídos em vários diretórios. São eles:
 1. `./prefiles`: contém os arquivos para redação da parte pré-textual como: capa, resumo, agradecimentos, listas, etc.
-2. `./capX:` Pastas que contém os capítulos do texto como: Introdução, Metodologia, Resultados, etc.
+2. `./capX`: Pastas que contém os capítulos do texto como: Introdução, Metodologia, Resultados, etc.
     - `./figs`: Pasta criada dentro de cada pasta de capítulo com o intuito de armazenar as figuras que serão inseridas no texto
-3. `./reffiles`: diretório que contém o arquivo `bibliografia.bib` com as referências bibliograficas utilizadas, bem como o arquivo `ABNTConfig.sty`, que é o arquivo com as configurações de formato seguindo as normas da ABNT.
+3. `./reffiles`: diretório que contém o arquivo `bibliografia.bib` com as referências bibliográficas utilizadas, bem como o arquivo `ABNTConfig.sty`, que é o arquivo com as configurações de formato seguindo as normas da ABNT.
 4. `./anexos`: local para armazenar os anexos que serão inseridos no texto
 5. `./apendices`: local para armazenar os apêndices que serão inseridos no texto
-6. ./: diretório raiz, com os arquivos:
+6. `./`: diretório raiz, com os arquivos:
     - `main.tex`, que é o arquivo principal a ser compilado.
     - `main.pdf`, que é o resultado da compilação
 
-Recomenda-se a navegueção nos diretórios para se familiarizar com seu conteúdo, mas não altere os arquivos antes de entender o que está fazendo.
+Recomenda-se a navegação nos diretórios para se familiarizar com seu conteúdo, mas não altere os arquivos antes de entender o que está fazendo.
 
-Download
+Downloads
 ========
-Faça o download da versão mais recente através [deste link](https://github.com/gusirosx/TexTemplate/releases).
+Faça o download da versão mais recente do template através [deste link](https://github.com/gusirosx/TexTemplate/releases).
+
+Recomenda-se a utilização dos seguintes programas:
+1. Distribuição `MiKTeX`, que pode ser baixada através [deste link](https://miktex.org/download).
+2. Editor e IDE `TeXstudio`, que pode ser baixada através [deste link](https://www.texstudio.org/).
+3. Gerenciador de referências `JabRef`, que pode ser baixada através [deste link](https://www.jabref.org/).
 
 Licença
 =======

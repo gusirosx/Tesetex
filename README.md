@@ -1,12 +1,21 @@
 # Template para elaboração de dissertações e teses em LaTeX
 
-Esse template visa disponibilizar um tema completo para elaboração de dissertações e teses em latex com design limpo, minimizando as distrações e colocando todo o foco diretamente no conteúdo.
+Este template foi elaborado para facilitar a elaboração de Teses e Dissertações de acordo com as normas de trabalhos acadêmicos da ABNT.
+O objetivo desse template é proporcionar um design limpo, sem distrações, onde todo o foco pode ser colocado diretamente no conteúdo. O autor precisa dominar apenas alguns conceitos básicos sobre a sintaxe do Latex.
 
 Demontração
 ============
 
 Uma demonstração completa está disponível. Busque por `main.tex` e `main.pdf`.
 
+Pre-requisitos
+============
+Ao utilizar este template assume-se que o leitor já esteja familiarizado com o uso do Latex. Isto inclui:
+* Saber instalar o LATEX e seus pacotes no seu sistema operacional, seja ele Windows ou Linux
+* Conseguir compilar um arquivo .tex de forma apropriada
+* Entender o que é arquivo BibTex e como inserir referências nele
+* Interpretar as inevitáveis mensagens de erro que surgem no momento da compilação
+* Saber como indicar no arquivo na localização de figuras, arquivos a inserir, etc
 
 Download
 ========

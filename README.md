@@ -7,8 +7,6 @@ Demontração
 
 Uma demonstração completa está disponível. Busque por `main.tex` e `main.pdf`.
 
-![](https://github.com/gusirosx/TexTemplate/blob/master/demo-screenshots/Capturar01.JPG)
-![](https://github.com/gusirosx/TexTemplate/blob/master/demo-screenshots/Capturar02.JPG)
 
 Download
 ========

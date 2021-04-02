@@ -28,7 +28,7 @@
 \usepackage{colortbl}                   % Adicionar cor às tabelas
 \usepackage{fancyvrb}                   % Texto verbatim sofisticado
 \usepackage{verbatim}                   % Texto verbatim
-\usepackage{float}                      %Improved interface for floating objects
+\usepackage{float}                      % Improved interface for floating objects
 \usepackage{wrapfig}                    % Produz figuras que o texto pode ficar ao redor
 \usepackage{url}                        % Adiciona URLs
 \usepackage{multirow}                   % Permite construir células multi-linhas
@@ -54,14 +54,11 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \usepackage{makeidx}                    % Process index output to produce typesettable code
 \usepackage{emptypage}                  % Retira o número de páginas em branco
 \usepackage{afterpage}                  % Execute command after the next page break
-\usepackage{kantlipsum}                 % The package spits out sentences in Kantian style
 \usepackage{setspace}                   % Para definir espaçamento entre as linhas
-\usepackage{listings}                   % Para Inserir código fonte
 \usepackage{graphics,graphicx}          % Suporte para gráficos
 \usepackage[normalsize]{subfigure}      % Possibilita a utilização de subfiguras
 \usepackage{epsfig,epsf}                % Uso de figuras eps.
 \usepackage{caption}                    % Customizar as legendas de figuras e tabelas
-%\usepackage{subcaption}                % Support for sub-captions
 \usepackage{multicol}                   % Criar ambientes com 2 ou mais colunas
 \usepackage{array}                      % Elementos extras para formatação de tabelas
 \usepackage{booktabs}                   % Tabelas com qualidade de publicação
@@ -80,97 +77,57 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \usepackage[tight]{units}               % Formatar as unidades com as distâncias corretas
 \usepackage{pifont}                     % Acesso a PostScript Symbol padrão e fontes Dingbats
 \usepackage{lastpage}                   % Conta o número de páginas
-\usepackage{ifoddpage}                  % Include páginas impares.
-\newcommand\alwaysodd[1]{%
-  \checkoddpage
-  \ifoddpage
-    #1%
-  \else
-    \mbox{}\clearpage#1%
-  \fi
-}
-
-
-% Define a convenient command to add a line to the database
-\newcommand*{\abrev}[2]{%
-  \DTLnewrow{acronyms}%
-  \DTLnewdbentry{acronyms}{Acronym}{#1}%
-  \DTLnewdbentry{acronyms}{Description}{#2}%
-}
-
-% Formatação das Abreviações
-\newcommand{\abrevlabel}[1]{\makebox[2cm][l]{\textbf{#1}\ \hfill}}
-\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abrevlabel}%
-\setlength{\labelwidth}{3cm}\setlength{\leftmargin}{\labelwidth+\labelsep}%
-\setlength{\itemsep}{0pt}}}{\end{list}}
-
-\usepackage[nottoc,notlof,notlot]{tocbibind}
 %==========================================================================================
 %                                      FORMATAÇÕES 
 %==========================================================================================
 \special{papersize=210.0mm,297.0mm}     % Tamanho do papel A4
 %\pagenumbering{roman}                  % Numeração das paginas iniciais em romano
 \setlength{\parindent}{2cm}             % Parágrafo de 1cm
-%\setlength{\mathindent}{1cm}           % Indentação das fórmulas matemáticas
-\setlength{\fboxsep}{1mm}               % Espaçamento do texto para o frame, também define
-                                        % espaçamento entre colunas da tabela
+\setlength{\fboxsep}{1mm}               % Espaçamento do texto para o frame, também define espaçamento entre colunas da tabela
 \frenchspacing                          % Não põe um espaço adicional após ponto final
 \sloppy                                 % Força que todas as linhas fiquem dentro das margens
 \raggedbottom                           % Para não permitir espaços extra no texto
 \def\figurename{Figura.}                % Define como a palavra figura será escrito
 \def\tablename{Tabela.}                 % Define como a palavra tabela será escrito
-\newcommand{\eq}[1]{Eq.~(\ref{#1})}		  % Facilita a citação de Equações
-\newcommand{\figu}[1]{Figura~\ref{#1}}	% Facilita a citação de Figuras
-\newcommand{\tab}[1]{Tabela~\ref{#1}}	  % Facilita a citação de Tabelas
+\newcommand{\eq}[1]{equação.~(\ref{#1})}% Facilita a citação de Equações
+\newcommand{\figu}[1]{figura~\ref{#1}}  % Facilita a citação de Figuras
+\newcommand{\tab}[1]{tabela~\ref{#1}}   % Facilita a citação de Tabelas
 %==========================================================================================
-\renewcommand{\cite}[1]{(\textsc{\citeauthor{#1}},~\citeyear{#1})}
-\theoremstyle{definition}
-\newtheorem{defi}{Definição}[chapter]   % Para introduzir uma definição
-\newtheorem{teo}{Teorema}[chapter]      % Para introduzir um teorema
-\newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}} % Colocar unidades na lista de Abreviaturas e siglas
+%                           Lista de Abreviaturas e Siglas
 %==========================================================================================
-% Criação dos subgrupos na Lista de Abreviaturas e Siglas
+% Forma conveniente de adicionar uma Abreviação ao banco de dados 
+\newcommand*{\abrev}[2]{%
+  \DTLnewrow{acronyms}%
+  \DTLnewdbentry{acronyms}{Acronym}{#1}%
+  \DTLnewdbentry{acronyms}{Description}{#2}%
+}
+% Formatação das Abreviações
+\newcommand{\abrevlabel}[1]{\makebox[2cm][l]{\textbf{#1}\ \hfill}}
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abrevlabel}%
+\setlength{\labelwidth}{3cm}\setlength{\leftmargin}{\labelwidth+\labelsep}%
+\setlength{\itemsep}{0pt}}}{\end{list}}
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+%==========================================================================================
+%                                   Lista de Símbolos
+%==========================================================================================
+\newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}} % Colocar unidades na lista de símbolos
+% Criação dos subgrupos da lista de Símbolos
 \renewcommand\nomgroup[1]{%
     \item[\large\bfseries
     \ifstrequal{#1}{A}{Letras Latinas}{%
     \ifstrequal{#1}{B}{Letras Gregas}{%
-    \ifstrequal{#1}{C}{Constantes Físicas}{%
-    \ifstrequal{#1}{D}{Sobrescritos}{% 
-    \ifstrequal{#1}{E}{Subscritos}{%   
+    \ifstrequal{#1}{C}{Sobrescritos}{%
+    \ifstrequal{#1}{D}{Subscritos}{% 
+    \ifstrequal{#1}{E}{Constantes Físicas}{%   
     \ifstrequal{#1}{F}{Operadores Matemáticos}{}}}}}}]
 }
-%==========================================================================================
-\setcounter{secnumdepth}{5}     % Serve pra introduzir um quinto nível de seções (subsubsubsection)
-\setcounter{tocdepth}{5}        % Serve pra introduzir um quinto nível de seções (subsubsubsection)
-\makeatletter                   % Changes the category code of '@' character to 11
-%===================================================================================================
-%                                      PARA INSERIR CÓDIGO FONTE
-%===================================================================================================
-\lstset{
-  numbers=left,
-  stepnumber=1,
-  firstnumber=1,
-  numberstyle=\tiny,
-  extendedchars=true,
-  breaklines=true,
-  frame=tb,
-  basicstyle=\footnotesize,
-  stringstyle=\ttfamily,
-  showstringspaces=false
-}
-\renewcommand{\lstlistingname}{Código}
-\renewcommand{\lstlistlistingname}{Lista de Listagens}
-%===================================================================================================
-%                                          OPERADORES
-%===================================================================================================
-\newcommand{\vectornorm}[1]{\left|\left|#1\right|\right|}   % Facilita a introdução da norma ||w||
-\newcommand{\argmax}{\operatornamewithlimits{argmax}}       % Facilita a escrita de argmax
-\newcommand{\latex}{\LaTeX~}                                % Facilita a escrita de LaTeX
-\newlength\figureheight
-\newlength\figurewidth
 %===================================================================================================
 %                             FORMATANDO SEÇÕES, TABELAS E EQUAÇÕES
 %===================================================================================================
+\setcounter{secnumdepth}{5}     % Serve pra introduzir um quinto nível de seções (subsubsubsection)
+\setcounter{tocdepth}{5}        % Serve pra introduzir um quinto nível de seções (subsubsubsection)
+\makeatletter                   % Changes the category code of '@' character to 11
+%---------------------------------------------------------------------------------------------------
 \@addtoreset{figure}{chapter}
 \renewcommand{\thefigure}{\thechapter.\@arabic\c@figure}
 
@@ -212,8 +169,7 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \renewcommand\refname{}
 \makeatletter
 \renewcommand\@biblabel[1]{}
-\newcommand*\clinbiblabel[1]{\hspace\labelsep
-                             \normalfont #1}
+\newcommand*\clinbiblabel[1]{\hspace\labelsep\normalfont #1}
 \renewenvironment{thebibliography}[1]
      {\chapter*{\refname
         \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}}%
@@ -253,32 +209,8 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 %===================================================================================================
 %                                     COMANDOS CUSTOMIZADOS
 %===================================================================================================
-%  Ambiente para criar exemplos dentro de um capítulo.
-% \floatstyle{boxed}
-% \newfloat{program}{!th}{lop}
-% \floatname{program}{Exemplo}
-% \newbox\examplebox
-% \newenvironment{example}[2]{%
-%     \program
-%     \vskip-.7\baselineskip
-%     \caption{#2}%
-%     \label{#1}%
-%     \verbatim
-% }{%
-%     \endverbatim
-%     \vskip-.7\baselineskip
-%     \endprogram
-% }
-% \numberwithin{program}{chapter}
-%% Redefinição de marcadores.
-% Types of itemize
-\renewcommand{\labelitemi}{$\circ$}         % \circ — An open circle
-\renewcommand{\labelitemii}{$\cdot$}        % \cdot — A centered dot
-\renewcommand{\labelitemiii}{$\diamond$}    % \ast — A centered asterisk
-\renewcommand{\labelitemiv}{$\ast$}         % \diamondsuit — An open diamond
-% \star — A five-pointed star
-% \rightarrow — A short right-pointing arrow
+\setlength{\parindent}{1cm}                 % modificação para configurar a tabulação
+%Remove linhas órfãs/viúvas
 \widowpenalty10000
 \clubpenalty10000
-\setlength{\parindent}{1cm}                 % modificação para configurar a tabulação
 %===================================================================================================

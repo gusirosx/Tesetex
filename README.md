@@ -13,11 +13,11 @@ Uma demonstração completa está disponível. Busque por `main.tex` e `main.pdf
 Pré-requisitos
 ============
 Ao utilizar este template assume-se que o leitor já esteja familiarizado com o uso do Latex. Isto inclui:
-* Saber instalar o LATEX e seus pacotes no seu sistema operacional, seja ele Windows ou Linux
-* Conseguir compilar um arquivo .tex de forma apropriada
-* Entender o que é arquivo BibTex e como inserir referências nele
-* Interpretar as inevitáveis mensagens de erro que surgem no momento da compilação
-* Saber como indicar no arquivo na localização de figuras, arquivos a inserir, etc
+* Saber instalar o LATEX e seus pacotes no seu sistema operacional, seja ele Windows ou Linux.
+* Conseguir compilar um arquivo .tex de forma apropriada.
+* Entender o que é arquivo BibTex e como inserir referências nele.
+* Interpretar as inevitáveis mensagens de erro que surgem no momento da compilação.
+* Saber como indicar no arquivo na localização de figuras, arquivos a inserir, etc.
 
 Estrutura de Arquivos
 ============
@@ -25,13 +25,13 @@ Estrutura de Arquivos
 O template inclui arquivos distribuídos em vários diretórios. São eles:
 1. `./prefiles`: contém os arquivos para redação da parte pré-textual como: capa, resumo, agradecimentos, listas, etc.
 2. `./capX`: Pastas que contém os capítulos do texto como: Introdução, Metodologia, Resultados, etc.
-    - `./figs`: Pasta criada dentro de cada pasta de capítulo com o intuito de armazenar as figuras que serão inseridas no texto
+    - `./figs`: Pasta criada dentro de cada pasta de capítulo com o intuito de armazenar as figuras que serão inseridas no texto.
 3. `./reffiles`: diretório que contém o arquivo `bibliografia.bib` com as referências bibliográficas utilizadas, bem como o arquivo `ABNTConfig.sty`, que é o arquivo com as configurações de formato seguindo as normas da ABNT.
-4. `./anexos`: local para armazenar os anexos que serão inseridos no texto
-5. `./apendices`: local para armazenar os apêndices que serão inseridos no texto
+4. `./anexos`: local para armazenar os anexos que serão inseridos no texto.
+5. `./apendices`: local para armazenar os apêndices que serão inseridos no texto.
 6. `./`: diretório raiz, com os arquivos:
     - `main.tex`, que é o arquivo principal a ser compilado.
-    - `main.pdf`, que é o resultado da compilação
+    - `main.pdf`, que é o resultado da compilação.
 
 Recomenda-se a navegação nos diretórios para se familiarizar com seu conteúdo, mas não altere os arquivos antes de entender o que está fazendo.
 

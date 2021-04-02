@@ -23,44 +23,17 @@ Estrutura de Arquivos
 ============
 
 O template inclui arquivos distribuídos em vários diretórios. São eles:
+1. `./prefiles`: contém os arquivos para redação da parte pré-textual como: capa, resumo, agradecimentos, listas, etc.
+2. `./capX:` Pastas que contém os capítulos do texto como: Introdução, Metodologia, Resultados, etc.
+    - `./figs`: Pasta criada dentro de cada pasta de capítulo com o intuito de armazenar as figuras que serão inseridas no texto
+3. `./reffiles`: diretório que contém o arquivo `bibliografia.bib` com as referências bibliograficas utilizadas, bem como o arquivo `ABNTConfig.sty`, que é o arquivo com as configurações de formato seguindo as normas da ABNT.
+4. `./anexos`: local para armazenar os anexos que serão inseridos no texto
+5. `./apendices`: local para armazenar os apêndices que serão inseridos no texto
+6. ./: diretório raiz, com os arquivos:
+    - `main.tex`, que é o arquivo principal a ser compilado.
+    - `main.pdf`, que é o resultado da compilação
 
-1. ./anexos: local para armazenar os anexos que serão inseridos no texto
-1. ./apendices: local para armazenar os apêndices que serão inseridos no texto
-
-
-2. ./referencias: diretório que contém o arquivo BibTex com as referências
-bibliograficas
-3. ./template: diretório que contém o arquivo Template_Tese.sty. Este é o
-arquivo com as configurações de formato seguindo as normas da ESALQ.
-
-
-4. ./prefiles: contém os arquivos para redação da parte pré-textual como: capa, resumo, agradecimentos, listas, etc.
-5. ./capX: Pastas que contém os capítulos do texto como: Introdução, Metodologia, Resultados, etc.
-    - ./figs: Pasta criada dentro de cada pasta de capítulo com o intuito de armazenar as figuras que serão inseridas no texto
-6. ./pos-textual: para anexos e apêndices
-7. ./: diretório raiz, com os arquivos `main.tex` (arquivo principal a ser compilado), Tese.pdf (o resultado da compilação) e Makefile (conjunto de
-instruções para compilação, para o ambiente Linux).
-Navegue nos diretórios para se familiarizar com seu conteúdo, mas não altere os
-arquivos antes de terminar a leitura do tutorial.
-
-
-
-<!--Compilando o documento
-O principal arquivo, que está no diretório raiz, é chamado Tese.tex. Abra-o. Seu
-conteúdo é auto-explicativo. Este é o arquivo que deverá ser compilado. Não altere
-suas configurações, exceto onde explicitamente indicado.
-O template faz uso da classe memoir1, que apresenta diversas facilidades para
-
-obtenção de documentos em capítulos, como é o caso das Dissertações e Te-
-ses. Além disso, ele importa diversas configurações específicas do arquivo Tem-
-plate_Tese.sty (arquivo que deve ser alterado apenas em pontos específicos).
-Em seguida, são inseridos vários arquivos com configuracões e conteúdo. Muitos
-deles apresentam pequenos trechos de textos fictícios para exemplificar como o
-texto deve ser digitado.
-
-Será produzido um arquivo Tese.pdf-->
-
-
+Recomenda-se a navegueção nos diretórios para se familiarizar com seu conteúdo, mas não altere os arquivos antes de entender o que está fazendo.
 
 Download
 ========

@@ -9,7 +9,7 @@
 % Você provavelmente recebeu uma cópia da Licença Pública Geral GNU junto com o template. 
 % Caso contrário, consulte <http://www.gnu.org/licenses/>.
 %
-% Instruções completas disponíveis em: https://github.com/gusirosx/TexTemplate
+% Instruções completas disponíveis em: https://github.com/gusirosx/Tesetex
 %==========================================================================================
 %                                      PACOTES
 %==========================================================================================
@@ -63,13 +63,17 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \usepackage[normalsize]{subfigure}      % Possibilita a utilização de subfiguras
 \usepackage{epsfig,epsf}                % Uso de figuras eps.
 \usepackage{caption}                    % Customizar as legendas de figuras e tabelas
-%\usepackage{subcaption}                 % Support for sub-captions
+%\usepackage{subcaption}                % Support for sub-captions
 \usepackage{multicol}                   % Criar ambientes com 2 ou mais colunas
 \usepackage{array}                      % Elementos extras para formatação de tabelas
 \usepackage{booktabs}                   % Tabelas com qualidade de publicação
 \usepackage{longtable}                  % Para criar tabelas maiores que uma página
 \usepackage{lscape}                     % adicionar tabelas e figuras como landscape
-\usepackage{nomencl}                    % Cria lista de abreviações
+%\usepackage{glossaries}
+%\usepackage{acronym}                    % Cria lista de abreviações
+\usepackage{etoolbox}                   % adiciona os subgrupos na lista de símbolos
+\usepackage{nomencl}                    % Cria lista de símbolos
+\immediate\write18{makeindex \jobname.nlo -s nomencl.ist -o \jobname.nls}
 \makenomenclature
 \usepackage{footnote}                   % Lidar com notas de rodapé em diversas situações
 \makesavenoteenv{tabular}               % Notas criadas nas tabelas ficam no fim das tabelas
@@ -88,6 +92,25 @@ bookmarksopen=true]{hyperref}           % To pdflatex
     \mbox{}\clearpage#1%
   \fi
 }
+
+
+
+%------------------------------teste
+\usepackage{datatool}
+
+% Define a convenient command to add a line to the database
+\newcommand*{\abrev}[2]{%
+  \DTLnewrow{acronyms}%
+  \DTLnewdbentry{acronyms}{Acronym}{#1}%
+  \DTLnewdbentry{acronyms}{Description}{#2}%
+}
+
+% Formatação das Abreviações
+\newcommand{\abrevlabel}[1]{\makebox[2cm][l]{\textbf{#1}\ \hfill}}
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abrevlabel}%
+\setlength{\labelwidth}{3cm}\setlength{\leftmargin}{\labelwidth+\labelsep}%
+\setlength{\itemsep}{0pt}}}{\end{list}}
+
 \usepackage[nottoc,notlof,notlot]{tocbibind}
 %==========================================================================================
 %                                      FORMATAÇÕES 
@@ -111,17 +134,26 @@ bookmarksopen=true]{hyperref}           % To pdflatex
 \theoremstyle{definition}
 \newtheorem{defi}{Definição}[chapter]   % Para introduzir uma definição
 \newtheorem{teo}{Teorema}[chapter]      % Para introduzir um teorema
-\newcommand{\nomunit}[1]{%
-\renewcommand{\nomentryend}{\dotfill[#1]}}  % Colocar unidades na lista de Abreviaturas e siglas
+\newcommand{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}} % Colocar unidades na lista de Abreviaturas e siglas
 %==========================================================================================
 %% Estes comandos criam os subgrupos na Lista de Abreviaturas e Siglas
-\renewcommand{\nomgroup}[1]{%
-  \ifthenelse{\equal{#1}{A}}{\item[\textbf{Letras Latinas}]}{\hrulefill%            a
-    \ifthenelse{\equal{#1}{C}}{\item[\textbf{Letras Gregas}]}{%{}}}                 b
-      \ifthenelse{\equal{#1}{E}}{\item[\textbf{Sobrescritos}]}{%}}}}                c
-        \ifthenelse{\equal{#1}{G}}{\item[\textbf{Subscritos}]}{%}}}}}               d
-          \ifthenelse{\equal{#1}{I}}{\item[\textbf{Abreviações}]}{%}}}}}}           e
-           \ifthenelse{\equal{#1}{K}}{\item[\textbf{Siglas}]}{}}{}}{}}{}}{}}{}}%    f
+% \renewcommand{\nomgroup}[1]{%
+%   \ifthenelse{\equal{#1}{A}}{\item[\textbf{Letras Latinas}]}{\hrulefill%            a
+%     \ifthenelse{\equal{#1}{C}}{\item[\textbf{Letras Gregas}]}{%{}}}                 b
+%       \ifthenelse{\equal{#1}{E}}{\item[\textbf{Sobrescritos}]}{%}}}}                c
+%         \ifthenelse{\equal{#1}{G}}{\item[\textbf{Subscritos}]}{%}}}}}               d
+%           \ifthenelse{\equal{#1}{I}}{\item[\textbf{Abreviações}]}{%}}}}}}           e
+%            \ifthenelse{\equal{#1}{K}}{\item[\textbf{Siglas}]}{}}{}}{}}{}}{}}{}}%    f
+           
+
+% \renewcommand\nomgroup[1]{\item[\bfseries\ifstrequal{#1}{A}{Letras Latinas}{\ifstrequal{#1}{B}{Letras Gregas}{\ifstrequal{#1}{C}{Constantes Físicas}{}}}]}
+           
+           
+% \renewcommand\nomgroup[1]{\item[\bfseries
+%     \ifstrequal{#1}{A}{Letras Latinas}{% Grupo das letras latinas
+%     \ifstrequal{#1}{B}{Letras Gregas}{% Grupo das Letras Gregas
+%     \ifstrequal{#1}{C}{Constantes Físicas}{}}}% Grupo das Constantes Físicas
+% ]}
 %==========================================================================================
 \setcounter{secnumdepth}{5}     % Serve pra introduzir um quinto nível de seções (subsubsubsection)
 \setcounter{tocdepth}{5}        % Serve pra introduzir um quinto nível de seções (subsubsubsection)

@@ -18,7 +18,6 @@
 	\chapter*{Lista de Abreviaturas e Siglas}
 \end{center}
 
-
 \DTLnewdb{acronyms}
 \abrev{UNIFAES}{Esquema de abordagem finita unificada do tipo exponencial, do inglês \textit{Unified Finite Approaches Exponential-type Scheme}}
 \abrev{CDS}{Esquema da diferença central, do inglês \textit{Central Differencing scheme}}
@@ -41,14 +40,9 @@
 \abrev{SOU}{\textit{Upwind} de segunda ordem, do inglês \textit{Second Order Upwind} }
 \abrev{ABNT}{Associação Brasileira de Normas Técnicas}
 \abrev{TDMA}{\textit{Tridiagonal Matrix Algorithm} }
-% Sort the database
+%Coloca as abreviações em ordem alfabética
 \DTLsort*{Acronym}{acronyms}
-
-% Display the contents of the database acronyms
+%Cria a lista das abreviações
 \begin{abbreviations}
 	\DTLforeach*{acronyms}{\thisAcronym=Acronym,\thisDesc=Description}{\item[\thisAcronym] \thisDesc}
 \end{abbreviations}
-
-
-
-

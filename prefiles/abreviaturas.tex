@@ -1,0 +1,54 @@
+%-------------------------------------------------------------------------------------------
+% Tesetex é um software livre: você pode redistribuí-lo e/ou modificá-lo
+% nos termos da Licença Pública Geral GNU 3, publicada pela Free Software Foundation.
+% Tesetex é distribuído na esperança de que seja útil para você, mas SEM QUALQUER GARANTIA. 
+% Veja a Licença Pública Geral GNU para mais detalhes.
+% Você provavelmente recebeu uma cópia da Licença Pública Geral GNU junto com o Tesetex. 
+% Caso contrário, consulte <http://www.gnu.org/licenses/>.
+% Criado por Gustavo Silva Rodrigues e a comunidade LaTeX.
+% Instruções completas disponíveis em: https://github.com/gusirosx/Tesetex
+%-------------------------------------------------------------------------------------------
+%===================================================================================================
+%                                    Lista de Abreviaturas
+%===================================================================================================
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Lista de Abreviaturas e Siglas}
+\begin{center}
+	\chapter*{Lista de Abreviaturas e Siglas}
+\end{center}
+
+
+\DTLnewdb{acronyms}
+\abrev{UNIFAES}{Esquema de abordagem finita unificada do tipo exponencial, do inglês \textit{Unified Finite Approaches Exponential-type Scheme}}
+\abrev{CDS}{Esquema da diferença central, do inglês \textit{Central Differencing scheme}}
+\abrev{ADI}{Direção implícita alternada, do inglês \textit{Alternating Direction Implicit}}
+\abrev{CFD}{Dinâmica dos fluidos computacional, do inglês \textit{Computational Fluid Dynamics}}
+\abrev{CFL}{\textit{Courant Friedrichs Lewy} }
+\abrev{DNS}{Simulações numéricas diretas, do inglês \textit{direct numerical simulations}}
+\abrev{FOU}{\textit{Upwind} de primeira ordem, do inglês \textit{First Order Upwind} }
+\abrev{LOADS}{Esquema de diferenciação localmente analítico, do inglês \textit{Locally Analytic Differencing Scheme} }
+\abrev{MAC}{\textit{Marker and Cell}}
+\abrev{MDF}{Métodos das diferenças finitas}
+\abrev{MEF}{Métodos dos Elementos Finitos}
+\abrev{MVF}{Métodos dos Volumes Finitos}
+\abrev{QUICK}{Interpolação quadrática a montante para a cinemática convectiva, do inglês \textit{Quadratic Upstream Interpolation for Convective Kinematics} }
+\abrev{QUICKER}{Interpolação quadrática a montante para a cinemática convectiva estendida e revisada, do inglês \textit{Quadratic Upstream Interpolation for Convective Kinematics Extended and Revised}}
+\abrev{RMS}{\textit{Root Mean Square} }
+\abrev{IBGE}{Instituto Brasileira de Geografia e Estatistica}
+\abrev{SIMPLEC}{\textit{Semi-Implicit Method for Pressure-Linked Equation Consistent} }
+\abrev{CNPq}{Conselho Nacional de Desenvolvimento Científico e Tecnológico }
+\abrev{SOU}{\textit{Upwind} de segunda ordem, do inglês \textit{Second Order Upwind} }
+\abrev{ABNT}{Associação Brasileira de Normas Técnicas}
+\abrev{TDMA}{\textit{Tridiagonal Matrix Algorithm} }
+% Sort the database
+\DTLsort*{Acronym}{acronyms}
+
+% Display the contents of the database acronyms
+\begin{abbreviations}
+	\DTLforeach*{acronyms}{\thisAcronym=Acronym,\thisDesc=Description}{\item[\thisAcronym] \thisDesc}
+\end{abbreviations}
+
+
+
+
